@@ -1,0 +1,195 @@
+
+
+
+# kubectl create configmap game-config --from-file=configure-pod-container/dd1/key
+# the key used for private transactions
+# quorum transaction manager keys
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quorum-node1-tm-key-config
+  
+  labels:
+    app: qubernetes
+    name: quorum-node1-tm-key-config
+data:
+  tm.key: |-
+    {"data":{"bytes":"4SAZv+LFQXGxGpcsR987DBhOBPOVQIgqJgeg1kcGzJk="},"type":"unlocked"}
+  tm.pub: |-
+    A5v5zs82vV0vd8Yo6vzdz7HDh9vpSZZPJdt1gm1k0AU=
+---
+# kubectl create configmap game-config --from-file=configure-pod-container/dd1/key
+# nodekey (enode) (geth/ethereum)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quorum-node1-nodekey-config
+  
+  labels:
+    app: qubernetes
+    name: quorum-node1-nodekey-config
+data:
+  nodekey: |
+    2bdf351440cf3c274a1382dca986a94976deaacb473913b1791bb5adedb358b3
+---
+# kubectl create configmap game-config --from-file=configure-pod-container/dd1/key
+# nodekey (enode) (geth/ethereum)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quorum-node1-enode-config
+  
+  labels:
+    app: qubernetes
+    name: quorum-node1-enode-config
+data:
+  enode: |
+    7ba12870fe2a51471d9d844d621be92c0ee66f1fdfaccd1b042ae5a13a53229b991c0e039a7f393e6b06471d402235eac3dcaac5f2ec4eee9fa85ffea525f2be
+
+# ethereum / geth account keys (keystore)
+---
+# kubectl create configmap game-config --from-file=configure-pod-container/dd1/key
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quorum-node1-account-key-config
+  
+  labels:
+    app: qubernetes
+    name: quorum-node1-account-key-config
+data:
+  key: |-
+
+
+    {"address":"a3004c7984bdf589a7ffbb69bd338538c62e475e","crypto":{"cipher":"aes-128-ctr","ciphertext":"704e60a5910ca9877bde9648f08ec2594709b74edf3859315ae186a8be666ac4","cipherparams":{"iv":"041279a579f7ab08f7202bf8a589de02"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"caef5352463e37820de375a78b8f1f923bea841027837dd2580bd26e5821eb4e"},"mac":"f7e24c5744fdc971b3349adfdf6e6a7853b6875fcba5041f33e17fbf10b38e0f"},"id":"8b23b567-ffe8-4b93-bc9f-339309ca4802","version":3}
+# end node
+
+# kubectl create configmap game-config --from-file=configure-pod-container/dd1/key
+# the key used for private transactions
+# quorum transaction manager keys
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quorum-node2-tm-key-config
+  
+  labels:
+    app: qubernetes
+    name: quorum-node2-tm-key-config
+data:
+  tm.key: |-
+    {"data":{"bytes":"ehNtGwtXViMxEYZLvf1Y+MDqLUpDTwzuOc/FYawzYVI="},"type":"unlocked"}
+  tm.pub: |-
+    LGN2nVeCgvmrBwBZxnkhElIc+ItiKeU3153mqcq87DM=
+---
+# kubectl create configmap game-config --from-file=configure-pod-container/dd1/key
+# nodekey (enode) (geth/ethereum)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quorum-node2-nodekey-config
+  
+  labels:
+    app: qubernetes
+    name: quorum-node2-nodekey-config
+data:
+  nodekey: |
+    60ddd8390427d273e55a82c7ce2e0fe3ab9276ba710e6fcd0d566ec95ae7cdbf
+---
+# kubectl create configmap game-config --from-file=configure-pod-container/dd1/key
+# nodekey (enode) (geth/ethereum)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quorum-node2-enode-config
+  
+  labels:
+    app: qubernetes
+    name: quorum-node2-enode-config
+data:
+  enode: |
+    54d9394e81e20d7d6664791c7a5786ca39da14a7d3771593d8fbb2947f270db103bbaff24f953d4df3d98ece2df804d21cc5671460de268858e99e2c304c6f13
+
+# ethereum / geth account keys (keystore)
+---
+# kubectl create configmap game-config --from-file=configure-pod-container/dd1/key
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quorum-node2-account-key-config
+  
+  labels:
+    app: qubernetes
+    name: quorum-node2-account-key-config
+data:
+  key: |-
+
+
+    {"address":"c631c72d36a93799f9d8964761d293709c57ee5c","crypto":{"cipher":"aes-128-ctr","ciphertext":"a2363541fc2b2b1342580d89862902d921d9653da65b576c33d91e5d402c90a1","cipherparams":{"iv":"e5a634de8f7486194448cf698df9be81"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"d25b60a552bc45fdbd80e9ab8613d4e08c6313254e9f63dff4f084423246ffec"},"mac":"cfaa39b365ec4ade1872d9d30edec0b12bec88f418b1795c736945067241e6ac"},"id":"6a4a88d3-9671-4d06-ac05-209a1072e784","version":3}
+# end node
+
+# kubectl create configmap game-config --from-file=configure-pod-container/dd1/key
+# the key used for private transactions
+# quorum transaction manager keys
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quorum-node3-tm-key-config
+  
+  labels:
+    app: qubernetes
+    name: quorum-node3-tm-key-config
+data:
+  tm.key: |-
+    {"data":{"bytes":"v4W5UqkB8kYmMw7tWpMkw7R7+w/cLE01c64uXYYwlWU="},"type":"unlocked"}
+  tm.pub: |-
+    uJHhGT0wXkpjNY/1S2DGOKSmKP2hiNV4WXQAbOhbqE8=
+---
+# kubectl create configmap game-config --from-file=configure-pod-container/dd1/key
+# nodekey (enode) (geth/ethereum)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quorum-node3-nodekey-config
+  
+  labels:
+    app: qubernetes
+    name: quorum-node3-nodekey-config
+data:
+  nodekey: |
+    a5f4bf16dca822f6669107fde5cc560294fd49258aaf5dd24a84a231372af8f4
+---
+# kubectl create configmap game-config --from-file=configure-pod-container/dd1/key
+# nodekey (enode) (geth/ethereum)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quorum-node3-enode-config
+  
+  labels:
+    app: qubernetes
+    name: quorum-node3-enode-config
+data:
+  enode: |
+    d5b250fe159126ce0058c757baeab89c5aed71583a1f6937020391ee81e9ec9fe78c6b791597af35f38ec053c73dda54fe01b444393aa9867ed7f975330b693b
+
+# ethereum / geth account keys (keystore)
+---
+# kubectl create configmap game-config --from-file=configure-pod-container/dd1/key
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quorum-node3-account-key-config
+  
+  labels:
+    app: qubernetes
+    name: quorum-node3-account-key-config
+data:
+  key: |-
+
+
+    {"address":"90bdc16b34396e26eb79e8e7e8dfab9170c45424","crypto":{"cipher":"aes-128-ctr","ciphertext":"80bc6604c39a86f439815c87ff5569c3e9d6b4cc19a4afedbab75a61ccaa3631","cipherparams":{"iv":"ab571a2fbf675abc30c3828c25ed266d"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"27ce3913204cb6f3508d5c387562f47a95309ceeb22488781537512e20891865"},"mac":"3ac7f359f9dcd5c1eb4946332d7442d63a6bd59417045ffd9a18c68149df3de4"},"id":"8d3e42f4-b802-4e07-bd55-aa80c6656eb6","version":3}
+# end node
+

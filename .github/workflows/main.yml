@@ -46,3 +46,6 @@ jobs:
         run: |
           echo $GITHUB_WORKSPACE
           ls $GITHUB_WORKSPACE
+      - name: run k8s tests
+        run: |
+          $GITHUB_WORKSPACE/test.sh test
