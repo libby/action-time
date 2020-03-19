@@ -1,0 +1,13 @@
+# action.yml
+name: 'Hello Action'
+description: 'The Action Docker'
+inputs:
+  config-prefix:  # id of input
+    description: 'config prefix to test'
+    required: true
+    default: '7nodes'
+runs:
+  using: 'docker'
+  image: 'Dockerfile.k8s-tests'
+  args:
+    - ${{ inputs.config-prefix }}

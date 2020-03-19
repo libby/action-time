@@ -18,3 +18,6 @@ RUN cd /usr/bin && curl -L https://github.com/jpmorganchase/constellation/releas
 
 WORKDIR /qubernetes
 COPY . .
+
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
