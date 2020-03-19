@@ -49,3 +49,7 @@ jobs:
       - name: run k8s tests
         run: |
           $GITHUB_WORKSPACE/test.sh test
+      - name: run k8s docker test
+        uses: ./
+        with:
+          config-prefix: test
