@@ -4,11 +4,12 @@ name: CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request 
 # events but only for the master branch
+# https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags
 on:
   push:
-    branches: [ master, action-time ]
+    branches: '*'
   pull_request:
-    branches: [ master, action-time ]
+    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -27,15 +28,15 @@ jobs:
       - name: Install latest version of Kind
         run: |
           GO111MODULE=on go get sigs.k8s.io/kind
-      - name: Create Kind cluster
-        run: |
-          PATH=$(go env GOPATH)/bin:$PATH kind create cluster 
-      - name: Run some sanity checks
-        # kubectl is already installed on the Github Ubuntu worker
-        run: |
-          kubectl get nodes -o wide
-          kubectl get pods --all-namespaces -o wide
-
+  #    - name: Create Kind cluster
+#        run: |
+#          PATH=$(go env GOPATH)/bin:$PATH kind create cluster
+#      - name: Run some sanity checks
+#        # kubectl is already installed on the Github Ubuntu worker
+#        run: |
+#          kubectl get nodes -o wide
+#          kubectl get pods --all-namespaces -o wide
+#
     # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
@@ -46,10 +47,24 @@ jobs:
         run: |
           echo $GITHUB_WORKSPACE
           ls $GITHUB_WORKSPACE
-      - name: run k8s tests
-        run: |
-          $GITHUB_WORKSPACE/test.sh test
-      - name: run k8s docker test
+      #- name: run k8s tests
+      #  run: |
+      #    $GITHUB_WORKSPACE/test.sh test
+      # https://help.github.com/en/actions/building-actions/creating-a-docker-container-action
+      - name: generate k8s resources via docker
         uses: ./
         with:
-          config-prefix: test
+          config-prefix: 7nodes
+     # - name: run k8s docker test
+     #   #uses: docker://quorumengineering/qubernetes
+     #   run: docker run quorumengineering/qubernetes testing/gen-configs.sh test
+      - name: check for output files
+        run: |
+          ls $GITHUB_WORKSPACE
+          ls $GITHUB_WORKSPACE/testing/test-out
+          echo inside testing
+          ls $GITHUB_WORKSPACE/testing
+          echo inside $GITHUB_WORKSPACE/testing/7nodes-out
+          ls $GITHUB_WORKSPACE/testing/7nodes-out
+      - name: run kind test
+        run: $GITHUB_WORKSPACE/testing/test-k8s-resources.sh 7nodes

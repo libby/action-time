@@ -1,5 +1,5 @@
 #namespace:
-# name: quorum-test
+#  name: quorum-test
 # number of nodes to deploy
 sep_deployment_files: true
 nodes:
@@ -25,9 +25,9 @@ quorum:
   # related to transaction manager containers
   tm:
     # container images at https://hub.docker.com/u/quorumengineering/
-    # (tessera|constellation)
-    Name: constellation
-    Tm_Version: 0.3.2
+    # (tessera|constellation) 0.10.0
+    Name: tessera
+    Tm_Version: 0.11
     Port: 9001
     Tessera_Config_Dir: out/config
   # for persistent is handled with Persistent Volume Claim (PVC) test locally and on GCP.
